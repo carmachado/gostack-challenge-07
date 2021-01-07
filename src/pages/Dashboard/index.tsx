@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
                 <img src={income} alt="Income" />
               </header>
               <h1 data-testid="balance-income">
-                {balance.income.toLocaleString('pt-BR', formato)}
+                {formatValue(balance.income)}
               </h1>
             </Card>
             <Card>
@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
                 <img src={outcome} alt="Outcome" />
               </header>
               <h1 data-testid="balance-outcome">
-                {balance.outcome.toLocaleString('pt-BR', formato)}
+                {formatValue(balance.outcome)}
               </h1>
             </Card>
             <Card total>
@@ -77,9 +77,7 @@ const Dashboard: React.FC = () => {
                 <p>Total</p>
                 <img src={total} alt="Total" />
               </header>
-              <h1 data-testid="balance-total">
-                {balance.total.toLocaleString('pt-BR', formato)}
-              </h1>
+              <h1 data-testid="balance-total">{formatValue(balance.total)}</h1>
             </Card>
           </CardContainer>
         )}
@@ -101,7 +99,7 @@ const Dashboard: React.FC = () => {
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
                     {transaction.type === 'outcome' && <>- </>}
-                    {transaction.value.toLocaleString('pt-BR', formato)}
+                    {formatValue(transaction.value)}
                   </td>
                   <td>{transaction.category.title}</td>
                   <td>
