@@ -34,7 +34,6 @@ const Dashboard: React.FC = () => {
   const [balance, setBalance] = useState<Balance | null>(null);
 
   const formato = {
-    minimumFractionDigits: 2,
     style: 'currency',
     currency: 'BRL',
   };
