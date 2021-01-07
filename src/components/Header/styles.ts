@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
@@ -15,22 +16,32 @@ export const Container = styled.div<ContainerProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+`;
 
-    nav {
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: opacity 0.2s;
+export const NavLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.2s;
 
-        & + a {
-          margin-left: 32px;
-        }
+  border: solid #ff872c;
+  border-width: 0;
 
-        &:hover {
-          opacity: 0.6;
-        }
-      }
-    }
+  ${({ to }) =>
+    to === useLocation().pathname
+      ? css`
+          border-width: 0 0 2px 0;
+        `
+      : css`
+          opacity: 80%;
+        `}
+
+  & + a {
+    margin-left: 32px;
+  }
+
+  &:hover {
+    opacity: 0.6;
   }
 `;
